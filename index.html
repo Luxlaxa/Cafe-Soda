@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cafe Soda — Vietnamese Coffee · Seattle · Little Saigon</title>
+<meta name="description" content="Cafe Soda — Cà Phê Sữa Đá reimagined for Seattle. Phin-brewed robusta, traditional Vietnamese drinks, served in Little Saigon." />
+<meta property="og:title" content="Cafe Soda — Vietnamese Coffee · Seattle" />
+<meta property="og:description" content="Little Saigon's Vietnamese coffee house. Phin-brewed robusta, cà phê sữa đá, and traditional Vietnamese drinks." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="emblem.jsx"></script>
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="common.jsx"></script>
+<script type="text/babel" src="sections.jsx"></script>
+
+<script type="text/babel">
+const { useEffect } = React;
+
+const TWEAK_DEFAULTS = {
+  palette: "lacquer",
+  displayFont: "Playfair Display",
+  showGrid: true,
+  marqueeSpeed: 28,
+  heroTreatment: "split",
+};
+
+const PALETTES = {
+  lacquer:  { red: "#B22234", redDk: "#8B1A1A", redDkr: "#6B0F0F", gold: "#D4A017", goldLt: "#F0C842", cream: "#F8F2E4", paper: "#EDE3CC", ink: "#1A0A00", body: "#3D1A00" },
+  jade:     { red: "#A8362F", redDk: "#7E2724", redDkr: "#5C1A18", gold: "#D4A017", goldLt: "#F0C842", cream: "#F4EFD8", paper: "#E6DDB8", ink: "#0F2018", body: "#1F3329" },
+  midnight: { red: "#B22234", redDk: "#8B1A1A", redDkr: "#6B0F0F", gold: "#E5C158", goldLt: "#F7DC78", cream: "#F1E8D2", paper: "#E0D3AE", ink: "#0A0810", body: "#2A1B05" },
+};
+
+const FONT_PAIRS = {
+  "Playfair Display": "'Playfair Display', serif",
+  "DM Serif Display": "'DM Serif Display', serif",
+  "Bodoni Moda": "'Bodoni Moda', serif",
+};
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const pal = PALETTES[t.palette] || PALETTES.lacquer;
+
+  useEffect(() => {
+    const r = document.documentElement.style;
+    r.setProperty("--cs-red", pal.red);
+    r.setProperty("--cs-red-dk", pal.redDk);
+    r.setProperty("--cs-red-dkr", pal.redDkr);
+    r.setProperty("--cs-gold", pal.gold);
+    r.setProperty("--cs-gold-lt", pal.goldLt);
+    r.setProperty("--cs-cream", pal.cream);
+    r.setProperty("--cs-paper", pal.paper);
+    r.setProperty("--cs-ink", pal.ink);
+    r.setProperty("--cs-body", pal.body);
+    r.setProperty("--cs-display", FONT_PAIRS[t.displayFont] || FONT_PAIRS["Playfair Display"]);
+    r.setProperty("--cs-marquee-dur", `${t.marqueeSpeed}s`);
+    r.setProperty("--cs-grid-opacity", t.showGrid ? "0.045" : "0");
+  }, [t]);
+
+  useEffect(() => {
+    document.body.setAttribute("data-hero", t.heroTreatment);
+  }, [t.heroTreatment]);
+
+  return (
+    <div className="cs-root">
+      <Nav current="home" />
+      <Hero />
+      <GradientRule />
+      <Marquee />
+      <Intro />
+      <Menu />
+      <Culture />
+      <Story />
+      <Location />
+      <Footer />
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Palette">
+          <TweakSelect
+            label="Theme"
+            value={t.palette}
+            options={[
+              { value: "lacquer",  label: "Lacquer Red & Imperial Gold (default)" },
+              { value: "jade",     label: "Jade Mountain — green ink, dust gold" },
+              { value: "midnight", label: "Midnight Sài Gòn — deep ink, soft gold" },
+            ]}
+            onChange={(v) => setTweak("palette", v)}
+          />
+        </TweakSection>
+
+        <TweakSection label="Display Font">
+          <TweakRadio
+            value={t.displayFont}
+            options={[
+              { value: "Playfair Display", label: "Playfair" },
+              { value: "DM Serif Display", label: "DM Serif" },
+              { value: "Bodoni Moda",      label: "Bodoni" },
+            ]}
+            onChange={(v) => setTweak("displayFont", v)}
+          />
+        </TweakSection>
+
+        <TweakSection label="Hero">
+          <TweakRadio
+            label="Treatment"
+            value={t.heroTreatment}
+            options={[
+              { value: "split",    label: "Split" },
+              { value: "centered", label: "Centered" },
+            ]}
+            onChange={(v) => setTweak("heroTreatment", v)}
+          />
+          <TweakToggle
+            label="Background grid"
+            value={t.showGrid}
+            onChange={(v) => setTweak("showGrid", v)}
+          />
+        </TweakSection>
+
+        <TweakSection label="Motion">
+          <TweakSlider
+            label="Marquee speed"
+            min={12} max={60} step={1}
+            value={t.marqueeSpeed}
+            onChange={(v) => setTweak("marqueeSpeed", v)}
+            unit="s/loop"
+          />
+        </TweakSection>
+      </TweaksPanel>
+
+      <style>{`
+        body[data-hero="centered"] .cs-hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+        body[data-hero="centered"] .cs-hero-text { max-width: 880px; }
+        body[data-hero="centered"] .cs-hero-emblem { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.18; pointer-events: none; }
+        body[data-hero="centered"] .cs-hero-ctas { justify-content: center; }
+        body[data-hero="centered"] .cs-eyebrow { justify-content: center; }
+      `}</style>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,885 @@
+/* ============================================
+   Cafe Soda — sub-page shared styles
+   ============================================ */
+
+/* Sub-page hero (smaller than home hero) */
+.cs-pagehero {
+  position: relative;
+  background: var(--cs-ink);
+  padding: 180px 56px 90px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212,160,23,0.18);
+}
+.cs-pagehero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(45deg, var(--cs-gold) 1px, transparent 1px),
+    linear-gradient(-45deg, var(--cs-gold) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+.cs-pagehero-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1100px; height: 700px;
+  background: radial-gradient(ellipse at center, rgba(178,34,52,0.4) 0%, rgba(178,34,52,0) 60%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+.cs-pagehero-inner {
+  position: relative; z-index: 2;
+  max-width: 1480px; margin: 0 auto;
+  text-align: center;
+}
+.cs-pagehero .cs-eyebrow { justify-content: center; }
+.cs-pagehero-vi {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 28px);
+  color: var(--cs-gold);
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+.cs-pagehero-title {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  color: var(--cs-cream);
+  margin: 0 0 28px;
+  letter-spacing: -0.015em;
+}
+.cs-pagehero-title em { color: var(--cs-gold-lt); font-style: italic; font-weight: 700; }
+.cs-pagehero-lede {
+  font-size: 18px; line-height: 1.7;
+  color: var(--cs-cream); opacity: 0.78;
+  max-width: 640px; margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Section primitives — light + dark variants */
+.cs-section-light {
+  background: var(--cs-cream);
+  color: var(--cs-body);
+  padding: 120px 56px;
+}
+.cs-section-paper {
+  background: var(--cs-paper);
+  color: var(--cs-body);
+  padding: 120px 56px;
+}
+.cs-section-dark {
+  background: var(--cs-ink);
+  color: var(--cs-cream);
+  padding: 120px 56px;
+}
+.cs-section-red {
+  background: var(--cs-red-dkr);
+  color: var(--cs-cream);
+  padding: 120px 56px;
+}
+.cs-section-inner { max-width: 1320px; margin: 0 auto; }
+
+/* ============================================
+   MENU PAGE
+   ============================================ */
+.cs-menupage-section {
+  background: var(--cs-ink);
+  padding: 90px 56px 130px;
+}
+.cs-menupage-cat {
+  max-width: 1320px;
+  margin: 0 auto 70px;
+}
+.cs-menupage-cat-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 22px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid rgba(212,160,23,0.22);
+}
+.cs-menupage-cat-title {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  color: var(--cs-gold-lt);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.cs-menupage-cat-title em { color: var(--cs-cream); font-style: italic; }
+.cs-menupage-cat-vi {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-gold);
+  font-size: 22px;
+}
+
+.cs-menupage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.cs-menupage-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  padding: 28px 30px 26px;
+  border-bottom: 1px dashed rgba(212,160,23,0.18);
+  border-right: 1px dashed rgba(212,160,23,0.18);
+  transition: background 0.3s;
+}
+.cs-menupage-item:nth-child(2n) { border-right: none; }
+.cs-menupage-item:hover { background: rgba(212,160,23,0.04); }
+.cs-menupage-item-h {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cs-menupage-item-vi {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-gold);
+  font-size: 18px;
+}
+.cs-menupage-item-en {
+  font-family: var(--cs-display);
+  font-weight: 700;
+  color: var(--cs-cream);
+  font-size: 21px;
+  letter-spacing: -0.005em;
+}
+.cs-menupage-item-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cs-cream);
+  opacity: 0.65;
+  margin: 0;
+  font-weight: 300;
+}
+.cs-menupage-item-meta {
+  display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;
+}
+.cs-menupage-pill {
+  font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+  padding: 4px 9px;
+  border: 1px solid rgba(212,160,23,0.4);
+  color: var(--cs-gold);
+  font-weight: 600;
+}
+.cs-menupage-pill-hot { color: #E96A8D; border-color: rgba(233,106,141,0.45); }
+.cs-menupage-pill-iced { color: #6FCDF0; border-color: rgba(111,205,240,0.4); }
+.cs-menupage-pill-blend { color: #B4E29B; border-color: rgba(180,226,155,0.45); }
+.cs-menupage-pill-tag { color: var(--cs-red); border-color: var(--cs-red); }
+.cs-menupage-item-price {
+  font-family: var(--cs-display);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--cs-gold-lt);
+  white-space: nowrap;
+}
+
+/* Order CTA panel */
+.cs-orderpanel {
+  background: var(--cs-red);
+  padding: 90px 56px;
+  text-align: center;
+  border-top: 1px solid rgba(212,160,23,0.4);
+  border-bottom: 1px solid rgba(212,160,23,0.4);
+}
+.cs-orderpanel-h {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  color: var(--cs-gold-lt);
+  margin: 0 0 20px;
+  line-height: 1.05;
+}
+.cs-orderpanel-h em { color: var(--cs-cream); font-style: italic; }
+.cs-orderpanel-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-cream);
+  font-size: 22px;
+  margin-bottom: 36px;
+  opacity: 0.9;
+}
+.cs-orderpanel-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+/* ============================================
+   STORY PAGE
+   ============================================ */
+.cs-storyhero {
+  position: relative;
+  background: var(--cs-ink);
+  padding: 140px 56px 100px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212,160,23,0.18);
+}
+.cs-storyhero-emblem {
+  display: flex; justify-content: center;
+  margin: 30px 0 50px;
+  filter: drop-shadow(0 0 40px rgba(212,160,23,0.4));
+}
+.cs-storyhero-rings { position: absolute; inset: 0; pointer-events: none; opacity: 0.4; }
+.cs-storyhero-ring {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--cs-gold);
+  border-radius: 50%;
+}
+
+/* The Name section */
+.cs-name-section { background: var(--cs-cream); padding: 130px 56px; text-align: center; }
+.cs-name-big {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  color: var(--cs-ink);
+  line-height: 1.05;
+  margin: 0 0 50px;
+}
+.cs-name-big em { color: var(--cs-red); font-style: italic; }
+.cs-name-equation {
+  display: flex; align-items: center; justify-content: center;
+  gap: 30px; flex-wrap: wrap;
+  margin: 60px auto;
+  max-width: 1000px;
+}
+.cs-name-eq-block {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px; padding: 28px 36px;
+  background: var(--cs-paper);
+  border: 1px solid rgba(212,160,23,0.4);
+}
+.cs-name-eq-vi {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 30px;
+  color: var(--cs-red-dk);
+}
+.cs-name-eq-en {
+  font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--cs-body); opacity: 0.7;
+}
+.cs-name-eq-op {
+  font-family: var(--cs-display);
+  font-size: 44px;
+  color: var(--cs-gold);
+  font-weight: 700;
+}
+.cs-name-body {
+  max-width: 720px; margin: 0 auto;
+  font-size: 17px; line-height: 1.8;
+  color: var(--cs-body); opacity: 0.85;
+  font-weight: 300;
+}
+
+/* Timeline */
+.cs-timeline {
+  position: relative;
+  max-width: 900px; margin: 70px auto 0;
+}
+.cs-timeline::before {
+  content: ""; position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--cs-gold) 8%, var(--cs-gold) 92%, transparent);
+  opacity: 0.4;
+}
+.cs-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 28px 0;
+}
+.cs-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 42px;
+  transform: translate(-50%, 0);
+  width: 12px; height: 12px;
+  background: var(--cs-gold);
+  border-radius: 50%;
+  border: 3px solid var(--cs-ink);
+  box-shadow: 0 0 0 1px var(--cs-gold);
+}
+.cs-timeline-year {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: 42px;
+  color: var(--cs-gold-lt);
+  line-height: 1;
+}
+.cs-timeline-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--cs-cream);
+  opacity: 0.78;
+  font-weight: 300;
+}
+.cs-timeline-item:nth-child(odd) .cs-timeline-year { text-align: right; }
+.cs-timeline-item:nth-child(even) .cs-timeline-year { grid-column: 2; text-align: left; order: 2; }
+.cs-timeline-item:nth-child(even) .cs-timeline-text { grid-column: 1; text-align: right; order: 1; }
+
+/* Sourcing — Việt Nam map stub */
+.cs-sourcing {
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  background: var(--cs-cream);
+  padding: 130px 56px;
+  align-items: center;
+}
+.cs-vn-map {
+  position: relative;
+  aspect-ratio: 1 / 1.2;
+  background: var(--cs-paper);
+  border: 1px solid rgba(212,160,23,0.4);
+}
+.cs-vn-shape {
+  position: absolute; inset: 30px;
+  background:
+    radial-gradient(circle at 40% 25%, rgba(178,34,52,0.18) 0%, transparent 30%),
+    radial-gradient(circle at 60% 70%, rgba(178,34,52,0.14) 0%, transparent 30%);
+}
+.cs-vn-pin {
+  position: absolute;
+  left: 52%; top: 50%;
+  transform: translate(-50%, -100%);
+  text-align: center;
+}
+.cs-vn-pin-label {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--cs-display);
+  font-weight: 700;
+  color: var(--cs-red-dk);
+  font-size: 15px;
+}
+.cs-vn-pin-sub {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-body); opacity: 0.7;
+  font-size: 13px;
+}
+
+/* Founders */
+.cs-founders-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 40px; margin-top: 50px;
+}
+.cs-founder-card {
+  background: var(--cs-paper);
+  padding: 36px 32px;
+  border: 1px solid rgba(212,160,23,0.4);
+}
+.cs-founder-photo {
+  width: 100%; aspect-ratio: 4 / 3;
+  margin-bottom: 24px;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--cs-red-dkr) 0 14px,
+      var(--cs-red-dk) 14px 28px);
+  display: grid; place-items: center;
+  color: var(--cs-gold-lt);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+}
+.cs-founder-name {
+  font-family: var(--cs-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--cs-ink);
+  margin: 0 0 4px;
+}
+.cs-founder-role {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-red);
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.cs-founder-bio {
+  font-size: 14.5px; line-height: 1.65;
+  color: var(--cs-body); opacity: 0.85;
+  font-weight: 300; margin: 0;
+}
+
+/* Press wall */
+.cs-press-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px; margin-top: 40px;
+}
+.cs-press-card {
+  background: var(--cs-paper);
+  border: 1px solid rgba(212,160,23,0.3);
+  padding: 28px 24px;
+}
+.cs-press-logo {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--cs-red-dk);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.cs-press-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--cs-body);
+}
+.cs-press-date {
+  margin-top: 14px;
+  font-size: 10.5px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cs-gold); opacity: 0.7;
+}
+
+/* ============================================
+   CULTURE PAGE
+   ============================================ */
+.cs-culturepage-section {
+  background: var(--cs-cream);
+  padding: 110px 56px;
+}
+.cs-culturepage-section-dark {
+  background: var(--cs-ink);
+  color: var(--cs-cream);
+  padding: 110px 56px;
+}
+.cs-editorial {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.cs-editorial-rev { direction: rtl; }
+.cs-editorial-rev > * { direction: ltr; }
+.cs-editorial-text .cs-section-label { color: var(--cs-red); }
+.cs-editorial-text .cs-label-line { background: var(--cs-red); }
+
+/* dark-section editorial */
+.cs-culturepage-section-dark .cs-h2 { color: var(--cs-cream); }
+.cs-culturepage-section-dark .cs-h2 em { color: var(--cs-gold-lt); }
+.cs-culturepage-section-dark .cs-body { color: var(--cs-cream); opacity: 0.78; }
+.cs-culturepage-section-dark .cs-section-label { color: var(--cs-gold); }
+.cs-culturepage-section-dark .cs-label-line { background: var(--cs-gold); }
+
+/* Đông Hồ folk illustration tiles (placeholder geometric) */
+.cs-dongho {
+  position: relative;
+  width: 100%; aspect-ratio: 4 / 3;
+  background: var(--cs-paper);
+  border: 1px solid rgba(212,160,23,0.4);
+  overflow: hidden;
+  display: grid; place-items: center;
+}
+.cs-dongho-dark {
+  background: #2a1102;
+  border-color: rgba(212,160,23,0.3);
+}
+.cs-dongho-caption {
+  position: absolute; bottom: 14px; left: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-gold);
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Phin step illustration row */
+.cs-phin-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 28px; margin-top: 60px;
+}
+.cs-phin-step {
+  text-align: center;
+}
+.cs-phin-step-num {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: 60px;
+  color: var(--cs-gold-lt);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+.cs-phin-step-title {
+  font-family: var(--cs-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--cs-cream);
+  margin: 0 0 8px;
+}
+.cs-phin-step-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--cs-cream); opacity: 0.7;
+  font-weight: 300;
+  margin: 0;
+}
+.cs-phin-step-icon {
+  width: 80px; height: 90px;
+  margin: 0 auto 20px;
+}
+
+/* Robusta vs Arabica chart */
+.cs-vs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+  max-width: 1100px;
+  margin-left: auto; margin-right: auto;
+}
+.cs-vs-col {
+  padding: 44px 36px;
+  background: var(--cs-paper);
+  border: 1px solid rgba(212,160,23,0.4);
+  position: relative;
+}
+.cs-vs-col-robusta {
+  background: var(--cs-red-dk);
+  color: var(--cs-cream);
+  border-color: rgba(212,160,23,0.4);
+}
+.cs-vs-col-arabica {
+  background: var(--cs-paper);
+}
+.cs-vs-label {
+  font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+.cs-vs-col-robusta .cs-vs-label { color: var(--cs-gold-lt); }
+.cs-vs-name {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: 40px;
+  margin: 0 0 22px;
+  line-height: 1;
+}
+.cs-vs-col-robusta .cs-vs-name { color: var(--cs-cream); }
+.cs-vs-col-arabica .cs-vs-name { color: var(--cs-ink); }
+.cs-vs-row {
+  display: grid; grid-template-columns: 110px 1fr;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(212,160,23,0.25);
+  font-size: 14.5px;
+}
+.cs-vs-row:last-child { border-bottom: none; }
+.cs-vs-row-k {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Drinks glossary */
+.cs-gloss-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 50px;
+}
+.cs-gloss-item {
+  background: var(--cs-paper);
+  border: 1px solid rgba(212,160,23,0.3);
+  padding: 22px 24px;
+}
+.cs-gloss-vi {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-red-dk);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.cs-gloss-en {
+  font-size: 13px; letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--cs-body); opacity: 0.7;
+  margin-bottom: 12px;
+}
+.cs-gloss-pron {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--cs-gold);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.cs-gloss-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--cs-body); opacity: 0.85;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ============================================
+   VISIT US PAGE
+   ============================================ */
+.cs-visit-info {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--cs-cream);
+}
+.cs-visit-info-left {
+  padding: 110px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.cs-visit-info-left .cs-section-label { color: var(--cs-red); }
+.cs-visit-info-left .cs-label-line { background: var(--cs-red); }
+.cs-visit-detail-row {
+  display: grid; grid-template-columns: 50px 1fr;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(212,160,23,0.4);
+}
+.cs-visit-detail-row:last-child { border-bottom: none; }
+.cs-visit-detail-ico {
+  width: 44px; height: 44px;
+  background: var(--cs-red);
+  border-radius: 50%;
+  display: grid; place-items: center;
+}
+.cs-visit-detail-label {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cs-red); opacity: 0.8;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.cs-visit-detail-val {
+  color: var(--cs-body);
+  font-size: 15.5px; line-height: 1.6;
+  font-weight: 300;
+}
+.cs-visit-info-right {
+  background: var(--cs-red-dkr);
+  position: relative;
+  min-height: 600px;
+}
+
+/* Contact form */
+.cs-contact {
+  background: var(--cs-paper);
+  padding: 120px 56px;
+}
+.cs-contact-inner {
+  max-width: 900px; margin: 0 auto;
+}
+.cs-form-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.cs-form-field { display: flex; flex-direction: column; gap: 8px; }
+.cs-form-field-full { grid-column: 1 / -1; }
+.cs-form-label {
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cs-red);
+  font-weight: 600;
+}
+.cs-form-input, .cs-form-select, .cs-form-textarea {
+  background: var(--cs-cream);
+  border: 1px solid rgba(107,15,15,0.3);
+  padding: 14px 16px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  color: var(--cs-ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.cs-form-input:focus, .cs-form-select:focus, .cs-form-textarea:focus {
+  border-color: var(--cs-red);
+}
+.cs-form-textarea { resize: vertical; min-height: 140px; font-family: inherit; }
+
+/* Catering & wholesale tiles */
+.cs-tiles {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 50px;
+}
+.cs-tile {
+  background: var(--cs-red-dk);
+  color: var(--cs-cream);
+  padding: 48px 40px;
+  border: 1px solid rgba(212,160,23,0.4);
+}
+.cs-tile-h {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--cs-gold-lt);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+.cs-tile-body {
+  font-size: 15px; line-height: 1.7;
+  opacity: 0.85; font-weight: 300;
+  margin: 0 0 22px;
+}
+
+/* Newsletter */
+.cs-newsletter {
+  background: var(--cs-red);
+  text-align: center;
+  padding: 100px 56px;
+}
+.cs-newsletter-h {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  color: var(--cs-gold-lt);
+  margin: 0 0 16px;
+}
+.cs-newsletter-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-cream);
+  font-size: 20px;
+  margin-bottom: 36px;
+  opacity: 0.9;
+}
+.cs-newsletter-form {
+  max-width: 520px; margin: 0 auto;
+  display: flex; gap: 0;
+}
+.cs-newsletter-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--cs-cream);
+  border: 1px solid var(--cs-gold);
+  color: var(--cs-ink);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+.cs-newsletter-btn {
+  background: var(--cs-gold);
+  border: 1px solid var(--cs-gold);
+  color: var(--cs-ink);
+  padding: 16px 28px;
+  font-size: 13px; letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.cs-newsletter-btn:hover { background: var(--cs-gold-lt); }
+
+/* ============================================
+   SHOP PAGE
+   ============================================ */
+.cs-shop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1480px; margin: 0 auto;
+}
+.cs-shop-card {
+  background: var(--cs-cream);
+  border: 1px solid rgba(212,160,23,0.3);
+  display: flex; flex-direction: column;
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+}
+.cs-shop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(26,10,0,0.25);
+}
+.cs-shop-img {
+  width: 100%; aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+}
+.cs-shop-body {
+  padding: 24px 26px 28px;
+  display: flex; flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.cs-shop-vi {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--cs-red);
+  font-size: 15px;
+}
+.cs-shop-name {
+  font-family: var(--cs-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--cs-ink);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.cs-shop-desc {
+  font-size: 13.5px; line-height: 1.6;
+  color: var(--cs-body); opacity: 0.75;
+  font-weight: 300;
+  margin: 0;
+  flex: 1;
+}
+.cs-shop-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 10px; padding-top: 14px;
+  border-top: 1px dashed rgba(212,160,23,0.4);
+}
+.cs-shop-price {
+  font-family: var(--cs-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--cs-red-dk);
+}
+.cs-shop-add {
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cs-red);
+  font-weight: 600;
+  border: 1px solid var(--cs-red);
+  padding: 8px 14px;
+  transition: background 0.25s, color 0.25s;
+}
+.cs-shop-add:hover {
+  background: var(--cs-red);
+  color: var(--cs-cream);
+}
+.cs-shop-cat-h {
+  font-family: var(--cs-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cs-ink);
+  margin: 80px 0 32px;
+  letter-spacing: -0.01em;
+}
+.cs-shop-cat-h em { color: var(--cs-red); font-style: italic; }
+.cs-shop-cat-h:first-of-type { margin-top: 0; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .cs-menupage-grid { grid-template-columns: 1fr; }
+  .cs-menupage-item { border-right: none; }
+  .cs-timeline-item { grid-template-columns: 1fr; gap: 14px; padding-left: 36px; text-align: left !important; }
+  .cs-timeline::before { left: 10px; }
+  .cs-timeline-item::before { left: 10px; }
+  .cs-timeline-item .cs-timeline-year, .cs-timeline-item .cs-timeline-text { grid-column: 1 !important; text-align: left !important; order: 0 !important; }
+  .cs-sourcing { grid-template-columns: 1fr; gap: 40px; }
+  .cs-editorial { grid-template-columns: 1fr; gap: 30px; }
+  .cs-editorial-rev { direction: ltr; }
+  .cs-phin-steps { grid-template-columns: 1fr 1fr; }
+  .cs-vs { grid-template-columns: 1fr; }
+  .cs-gloss-grid { grid-template-columns: 1fr 1fr; }
+  .cs-visit-info { grid-template-columns: 1fr; }
+  .cs-visit-info-left { padding: 80px 32px; }
+  .cs-form-grid { grid-template-columns: 1fr; }
+  .cs-tiles { grid-template-columns: 1fr; }
+  .cs-shop-grid { grid-template-columns: 1fr 1fr; }
+  .cs-press-grid { grid-template-columns: 1fr 1fr; }
+  .cs-founders-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .cs-pagehero { padding: 130px 28px 60px; }
+  .cs-shop-grid { grid-template-columns: 1fr; }
+  .cs-phin-steps { grid-template-columns: 1fr; }
+  .cs-gloss-grid { grid-template-columns: 1fr; }
+  .cs-press-grid { grid-template-columns: 1fr; }
+  .cs-newsletter-form { flex-direction: column; }
+  .cs-section-light, .cs-section-dark, .cs-section-red, .cs-section-paper, .cs-culturepage-section, .cs-culturepage-section-dark, .cs-name-section, .cs-contact { padding: 80px 28px; }
+}

@@ -29,17 +29,17 @@ const Reveal = ({ children, delay = 0, as: Tag = "div", style = {}, ...props }) 
 };
 
 const NAV_ITEMS = [
-  { label: "Menu",      href: "Menu.html",      key: "menu" },
-  { label: "Our Story", href: "Our Story.html", key: "story" },
-  { label: "Culture",   href: "Culture.html",   key: "culture" },
-  { label: "Visit Us",  href: "Visit Us.html",  key: "visit" },
-  { label: "Shop",      href: "Shop.html",      key: "shop" },
+  { label: "Menu",      href: "menu.html",      key: "menu" },
+  { label: "Our Story", href: "our-story.html", key: "story" },
+  { label: "Culture",   href: "culture.html",   key: "culture" },
+  { label: "Visit Us",  href: "visit-us.html",  key: "visit" },
+  { label: "Shop",      href: "shop.html",      key: "shop" },
 ];
 
 const Nav = ({ current = "home" }) => (
   <nav className="cs-nav">
     <div className="cs-nav-inner">
-      <a href="Cafe Soda.html" className="cs-brand">
+      <a href="/" className="cs-brand">
         <span className="cs-brand-mark">
           <Emblem size={48} glow={false} />
         </span>
@@ -53,7 +53,7 @@ const Nav = ({ current = "home" }) => (
           <a key={n.key} href={n.href} className={current === n.key ? "is-current" : ""}>{n.label}</a>
         ))}
       </div>
-      <a href="Menu.html" className="cs-nav-cta">Order Online</a>
+      <a href="menu.html" className="cs-nav-cta">Order Online</a>
     </div>
   </nav>
 );
@@ -74,27 +74,27 @@ const Footer = () => (
       </div>
       <div className="cs-footer-col">
         <div className="cs-footer-h">Menu</div>
-        <a href="Menu.html">Traditional Cà Phê</a>
-        <a href="Menu.html">Specialty</a>
-        <a href="Menu.html">Seasonal</a>
-        <a href="Menu.html">Bites</a>
-        <a href="Menu.html">Order Online</a>
+        <a href="menu.html">Traditional Cà Phê</a>
+        <a href="menu.html">Specialty</a>
+        <a href="menu.html">Seasonal</a>
+        <a href="menu.html">Bites</a>
+        <a href="menu.html">Order Online</a>
       </div>
       <div className="cs-footer-col">
         <div className="cs-footer-h">Explore</div>
-        <a href="Our Story.html">Our Story</a>
-        <a href="Culture.html">Vietnamese Coffee</a>
-        <a href="Culture.html">Brewing Guide</a>
-        <a href="Visit Us.html">Events</a>
-        <a href="Our Story.html">Press</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="culture.html">Vietnamese Coffee</a>
+        <a href="culture.html">Brewing Guide</a>
+        <a href="visit-us.html">Events</a>
+        <a href="our-story.html">Press</a>
       </div>
       <div className="cs-footer-col">
         <div className="cs-footer-h">Connect</div>
-        <a href="Shop.html">Shop</a>
+        <a href="shop.html">Shop</a>
         <a href="#">Instagram</a>
         <a href="#">TikTok</a>
-        <a href="Visit Us.html">Newsletter</a>
-        <a href="Visit Us.html">Wholesale / Catering</a>
+        <a href="visit-us.html">Newsletter</a>
+        <a href="visit-us.html">Wholesale / Catering</a>
       </div>
     </div>
     <div className="cs-footer-bottom">
